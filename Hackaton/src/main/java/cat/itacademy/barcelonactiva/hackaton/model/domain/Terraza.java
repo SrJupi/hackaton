@@ -9,9 +9,13 @@ public class Terraza {
     @Id
     private String id;
 
+    private Integer num_id;
+    private String nomLocal;
+    private String nomVia;
+    private Integer numVia;
+    private String direccion;
     private Integer codBarrio;
     private String nomBarrio;
-    private String direccion;
     private Float area;
     private Integer mesas;
     private Integer sillas;
@@ -19,10 +23,16 @@ public class Terraza {
     private Float lon;
     private Integer likes;
 
-    public Terraza(Integer codBarrio, String nomBarrio, String direccion, Float area, Integer mesas, Integer sillas, Float lat, Float lon, Integer likes) {
+    public Terraza(Integer num_id, String nomLocal, String nomVia, Integer numVia,
+                   String direccion, Integer codBarrio, String nomBarrio, Float area,
+                   Integer mesas, Integer sillas, Float lat, Float lon, Integer likes) {
+        this.num_id = num_id;
+        this.nomLocal = nomLocal;
+        this.nomVia = nomVia;
+        this.numVia = numVia;
+        this.direccion = direccion;
         this.codBarrio = codBarrio;
         this.nomBarrio = nomBarrio;
-        this.direccion = direccion;
         this.area = area;
         this.mesas = mesas;
         this.sillas = sillas;
@@ -117,13 +127,49 @@ public class Terraza {
         this.likes = likes;
     }
 
+    public Integer getNum_id() {
+        return num_id;
+    }
+
+    public void setNum_id(Integer num_id) {
+        this.num_id = num_id;
+    }
+
+    public String getNomLocal() {
+        return nomLocal;
+    }
+
+    public void setNomLocal(String nomLocal) {
+        this.nomLocal = nomLocal;
+    }
+
+    public String getNomVia() {
+        return nomVia;
+    }
+
+    public void setNomVia(String nomVia) {
+        this.nomVia = nomVia;
+    }
+
+    public Integer getNumVia() {
+        return numVia;
+    }
+
+    public void setNumVia(Integer numVia) {
+        this.numVia = numVia;
+    }
+
     @Override
     public String toString() {
         return "Terraza{" +
                 "id='" + id + '\'' +
+                ", num_id=" + num_id +
+                ", nomLocal='" + nomLocal + '\'' +
+                ", nomVia='" + nomVia + '\'' +
+                ", numVia=" + numVia +
+                ", direccion='" + direccion + '\'' +
                 ", codBarrio=" + codBarrio +
                 ", nomBarrio='" + nomBarrio + '\'' +
-                ", direccion='" + direccion + '\'' +
                 ", area=" + area +
                 ", mesas=" + mesas +
                 ", sillas=" + sillas +
