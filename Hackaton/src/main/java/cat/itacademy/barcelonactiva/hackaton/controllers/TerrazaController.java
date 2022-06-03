@@ -12,28 +12,40 @@ public class TerrazaController {
     @Autowired
     TerrazaService service;
 
-    @GetMapping("/terrazas")
-    ResponseEntity getTerrazas(){
+    @GetMapping()
+    ResponseEntity <?> getTerrazas(){
         return service.getTerrazas();
     }
 
-    @GetMapping(value = "/terrazas", params = {"nom", "sillas"})
-    ResponseEntity getTerrazasFilter(@RequestParam(required = true) String nom, @RequestParam(required = true) Integer sillas){
-        return service.getTerrazasByNomYSillas(nom, sillas);
+    @GetMapping(params = {"nom", "sillas"})
+    ResponseEntity <?> getTerrazasFilter(@RequestParam() String nom,
+                                     @RequestParam() Integer sillas){
+        return service.getTerrazasByBarrioYSillas(nom, sillas);
     }
 
-    @GetMapping(value = "/terrazas", params = "nom")
-    ResponseEntity getTerrazasByNom(@RequestParam String nom){
-        return service.getTerrazasByNomBarrio(nom);
+    @GetMapping(params = {"cod", "sillas"})
+    ResponseEntity<?> getTerrazasFilter(@RequestParam() Integer cod,
+                                     @RequestParam() Integer sillas){
+        return service.getTerrazasByBarrioYSillas(cod, sillas);
     }
 
-    @PutMapping(value = "/terrazas", params = "id")
-    ResponseEntity addLikes(@RequestParam String id){
-        return service.addLikes(id);
+    @GetMapping(params = {"sillas"})
+    ResponseEntity <?> getTerrazasFilter(@RequestParam() Integer sillas){
+        return service.getTerrazasBySillas(sillas);
     }
 
-    @PostMapping("/terrazas")
-    ResponseEntity newTerraza(@RequestBody Terraza terraza){
+    @GetMapping(params = "nom")
+    ResponseEntity <?> getTerrazasByNom(@RequestParam String nom){
+        return service.getTerrazasByBarrio(nom);
+    }
+
+    @GetMapping(params = "cod")
+    ResponseEntity <?> getTerrazasByNom(@RequestParam Integer cod){
+        return service.getTerrazasByBarrio(cod);
+    }
+
+    @PostMapping()
+    ResponseEntity <?> newTerraza(@RequestBody Terraza terraza){
         return service.saveTerraza(terraza);
     }
 }

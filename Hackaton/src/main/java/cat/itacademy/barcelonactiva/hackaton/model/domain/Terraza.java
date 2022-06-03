@@ -21,11 +21,10 @@ public class Terraza {
     private Integer sillas;
     private Float lat;
     private Float lon;
-    private Integer likes;
 
     public Terraza(Integer num_id, String nomLocal, String nomVia, Integer numVia,
                    String direccion, Integer codBarrio, String nomBarrio, Float area,
-                   Integer mesas, Integer sillas, Float lat, Float lon, Integer likes) {
+                   Integer mesas, Integer sillas, Float lat, Float lon) {
         this.num_id = num_id;
         this.nomLocal = nomLocal;
         this.nomVia = nomVia;
@@ -38,7 +37,6 @@ public class Terraza {
         this.sillas = sillas;
         this.lat = lat;
         this.lon = lon;
-        this.likes = likes;
     }
 
     public Terraza() {
@@ -116,17 +114,6 @@ public class Terraza {
         this.lon = lon;
     }
 
-    public Integer getLikes() {
-        if (likes == null){
-            return 0;
-        }
-        return likes;
-    }
-
-    public void setLikes(Integer likes) {
-        this.likes = likes;
-    }
-
     public Integer getNum_id() {
         return num_id;
     }
@@ -175,7 +162,6 @@ public class Terraza {
                 ", sillas=" + sillas +
                 ", lat=" + lat +
                 ", lon=" + lon +
-                ", likes=" + likes +
                 '}';
     }
 }
